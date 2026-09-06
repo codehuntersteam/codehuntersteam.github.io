@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CodeHunters — Hackathon Team</title>
+    <title>CodeHunters</title>
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=100&id=dQVSC6DSmc3w&format=png&color=000000">
 
     <style>
 
@@ -45,7 +46,7 @@
             padding: 20px 8%;
 
             display: flex;
-            justify-content: space-between;
+            justify-content: start;
             align-items: center;
 
             position: fixed;
@@ -54,7 +55,7 @@
 
             z-index: 1000;
 
-            background: rgba(8, 9, 13, 0.8);
+            background: rgba(8, 9, 13, 0.75);
 
             backdrop-filter: blur(12px);
 
@@ -63,33 +64,15 @@
 
 
         .logo {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
+            letter-spacing: -0.5px;
+            
         }
 
 
         .logo span {
             color: #6c63ff;
-        }
-
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-
-            list-style: none;
-        }
-
-
-        .nav-links a {
-            color: #aaa;
-
-            transition: 0.3s;
-        }
-
-
-        .nav-links a:hover {
-            color: white;
         }
 
 
@@ -387,8 +370,6 @@
         }
 
 
-        /* Shine */
-
         .hunter-links a::before {
             content: "";
 
@@ -411,8 +392,6 @@
             transition: left 0.5s ease;
         }
 
-
-        /* Hover */
 
         .hunter-links a:hover {
             color: #ffffff;
@@ -562,15 +541,67 @@
         ========================= */
 
         footer {
-            padding: 30px 8%;
+            padding: 45px 8% 30px;
 
             border-top: 1px solid #1d1e25;
 
+            color: #666;
+
+            text-align: center;
+        }
+
+
+        /* BOTTOM NAVIGATION */
+
+        .footer-nav {
             display: flex;
 
-            justify-content: space-between;
+            justify-content: center;
 
-            color: #666;
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 30px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .footer-nav a {
+            color: #888;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .footer-nav a:hover {
+            color: #ffffff;
+        }
+
+
+        .footer-logo {
+            font-size: 20px;
+
+            font-weight: bold;
+
+            color: white;
+
+            margin-bottom: 12px;
+        }
+
+
+        .footer-logo span {
+            color: #6c63ff;
+        }
+
+
+        .copyright {
+            font-size: 13px;
+
+            color: #555;
         }
 
 
@@ -581,8 +612,8 @@
 
         @media (max-width: 700px) {
 
-            .nav-links {
-                display: none;
+            section {
+                padding: 80px 6%;
             }
 
 
@@ -591,22 +622,13 @@
             }
 
 
-            section {
-                padding: 80px 6%;
-            }
-
-
             .cta h2 {
                 font-size: 32px;
             }
 
 
-            footer {
-                flex-direction: column;
-
-                gap: 10px;
-
-                text-align: center;
+            .footer-nav {
+                gap: 18px;
             }
 
 
@@ -638,35 +660,6 @@
         <div class="logo">
             Code<span>Hunters</span>
         </div>
-
-
-        <ul class="nav-links">
-
-            <li>
-                <a href="#about">
-                    About
-                </a>
-            </li>
-
-            <li>
-                <a href="#team">
-                    Team
-                </a>
-            </li>
-
-            <li>
-                <a href="#projects">
-                    Projects
-                </a>
-            </li>
-
-            <li>
-                <a href="#contact">
-                    Contact
-                </a>
-            </li>
-
-        </ul>
 
     </nav>
 
@@ -701,10 +694,9 @@
 
                 <a
                     class="btn primary"
-                    href="https://github.com/"
-                    target="_blank"
+                    href="#team"
                 >
-                    View GitHub
+                     Go to Hunters
                 </a>
 
 
@@ -1146,14 +1138,39 @@
 
     <footer>
 
-        <div>
-            © 2026 CodeHunters
+
+        <!-- BOTTOM NAVIGATION -->
+
+        <div class="footer-nav">
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#team">
+                Team
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
         </div>
 
 
-        <div>
-            Built with ❤️ & code
+        <div class="footer-logo">
+            Code<span>Hunters</span>
         </div>
+
+
+        <div class="copyright">
+            © 2026 CodeHunters. Built with ❤️ & code.
+        </div>
+
 
     </footer>
 
