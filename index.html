@@ -1,0 +1,1164 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CodeHunters — Hackathon Team</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #08090d;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            width: 100%;
+            padding: 20px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            z-index: 1000;
+
+            background: rgba(8, 9, 13, 0.8);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+
+        .logo span {
+            color: #6c63ff;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            color: #aaa;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 100px 20px 50px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(108, 99, 255, 0.18),
+                    transparent 35%
+                );
+        }
+
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+
+        .badge {
+            display: inline-block;
+
+            padding: 8px 16px;
+
+            border: 1px solid rgba(108, 99, 255, 0.5);
+
+            border-radius: 50px;
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 {
+            font-size: clamp(55px, 10vw, 110px);
+
+            line-height: 1;
+
+            letter-spacing: -5px;
+        }
+
+
+        .hero h1 span {
+            color: #6c63ff;
+        }
+
+
+        .hero p {
+            margin: 30px auto;
+
+            max-width: 650px;
+
+            color: #999;
+
+            font-size: 18px;
+        }
+
+
+        .buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+            padding: 13px 25px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .primary {
+            background: #6c63ff;
+        }
+
+
+        .primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 30px rgba(108, 99, 255, 0.3);
+        }
+
+
+        .secondary {
+            border: 1px solid #333;
+
+            color: #ccc;
+        }
+
+
+        .secondary:hover {
+            border-color: #6c63ff;
+
+            color: white;
+        }
+
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 100px 8%;
+        }
+
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 60px;
+        }
+
+
+        .section-title h2 {
+            font-size: 40px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .section-title p {
+            color: #888;
+        }
+
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+
+            color: #aaa;
+
+            font-size: 18px;
+        }
+
+
+
+        /* =========================
+           TEAM
+        ========================= */
+
+        .team-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+        }
+
+
+        .member {
+            padding: 30px;
+
+            background: #101117;
+
+            border: 1px solid #20222b;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .member:hover {
+            transform: translateY(-7px);
+
+            border-color: #6c63ff;
+
+            box-shadow:
+                0 10px 35px rgba(108, 99, 255, 0.12);
+        }
+
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+
+            margin: auto auto 15px;
+
+            border-radius: 50%;
+
+            background: #181a25;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            font-size: 30px;
+        }
+
+
+        .member h3 {
+            margin-bottom: 4px;
+        }
+
+
+        .member p {
+            color: #777;
+
+            font-size: 14px;
+        }
+
+
+
+        /* =========================
+           HUNTER BUTTONS
+        ========================= */
+
+        .hunter-links {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 22px;
+        }
+
+
+        .hunter-links a {
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 95px;
+
+            padding: 9px 16px;
+
+            border: 1px solid #292b36;
+
+            border-radius: 8px;
+
+            background: #15161d;
+
+            color: #b8b8c2;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            overflow: hidden;
+
+            transition:
+                color 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        /* Shine */
+
+        .hunter-links a::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -100%;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.08),
+                    transparent
+                );
+
+            transition: left 0.5s ease;
+        }
+
+
+        /* Hover */
+
+        .hunter-links a:hover {
+            color: #ffffff;
+
+            border-color: #6c63ff;
+
+            background: #1a1928;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 6px 20px rgba(108, 99, 255, 0.18);
+        }
+
+
+        .hunter-links a:hover::before {
+            left: 100%;
+        }
+
+
+        .hunter-links a:active {
+            transform: translateY(-1px);
+        }
+
+
+
+        /* =========================
+           TECH STACK
+        ========================= */
+
+        .tech-grid {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+        }
+
+
+        .tech {
+            padding: 12px 20px;
+
+            background: #101117;
+
+            border: 1px solid #252732;
+
+            border-radius: 8px;
+
+            color: #bbb;
+
+            transition: 0.3s;
+        }
+
+
+        .tech:hover {
+            border-color: #6c63ff;
+
+            color: white;
+        }
+
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 25px;
+        }
+
+
+        .project {
+            padding: 30px;
+
+            background: #101117;
+
+            border: 1px solid #20222b;
+
+            border-radius: 15px;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+
+        .project:hover {
+            transform: translateY(-5px);
+
+            border-color: #6c63ff;
+        }
+
+
+        .project h3 {
+            margin-bottom: 10px;
+        }
+
+
+        .project p {
+            color: #888;
+
+            margin-bottom: 20px;
+        }
+
+
+        .project a {
+            color: #6c63ff;
+        }
+
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            text-align: center;
+
+            background: #0d0e14;
+        }
+
+
+        .cta h2 {
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .cta p {
+            color: #888;
+
+            margin-bottom: 30px;
+        }
+
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 8%;
+
+            border-top: 1px solid #1d1e25;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #666;
+        }
+
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+
+            section {
+                padding: 80px 6%;
+            }
+
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+
+            footer {
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+
+
+            .hunter-links {
+                flex-direction: column;
+            }
+
+
+            .hunter-links a {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            Code<span>Hunters</span>
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#team">
+                    Team
+                </a>
+            </li>
+
+            <li>
+                <a href="#projects">
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ⚡ Hack. Build. Hunt.
+            </div>
+
+
+            <h1>
+                Code<span>Hunters</span>
+            </h1>
+
+
+            <p>
+                We are a team of passionate developers,
+                designers and problem solvers building
+                bold ideas under pressure.
+            </p>
+
+
+            <div class="buttons">
+
+                <a
+                    class="btn primary"
+                    href="https://github.com/"
+                    target="_blank"
+                >
+                    View GitHub
+                </a>
+
+
+                <a
+                    class="btn secondary"
+                    href="#projects"
+                >
+                    Explore Projects
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+        <div class="section-title">
+
+            <h2>
+                Who We Are
+            </h2>
+
+            <p>
+                More than just a team.
+            </p>
+
+        </div>
+
+
+        <div class="about">
+
+            <p>
+                CodeHunters is a hackathon team focused on
+                turning real-world problems into practical
+                technology. We brainstorm fast, build faster
+                and learn from every challenge we take on.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TEAM
+    ========================= -->
+
+    <section id="team">
+
+        <div class="section-title">
+
+            <h2>
+                Meet the Hunters
+            </h2>
+
+            <p>
+                The people behind the code.
+            </p>
+
+        </div>
+
+
+        <div class="team-grid">
+
+
+            <!-- HUNTER 1 -->
+
+            <div class="member">
+
+                <div class="avatar">
+                    👨‍💻
+                </div>
+
+
+                <h3>
+                    Your Name
+                </h3>
+
+
+                <p>
+                    Full Stack Developer
+                </p>
+
+
+                <div class="hunter-links">
+
+                    <a
+                        href="https://github.com/yourusername"
+                        target="_blank"
+                    >
+                        GitHub ↗
+                    </a>
+
+
+                    <a
+                        href="https://yourwebsite.com"
+                        target="_blank"
+                    >
+                        Website ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HUNTER 2 -->
+
+            <div class="member">
+
+                <div class="avatar">
+                    👨‍🎨
+                </div>
+
+
+                <h3>
+                    Member Two
+                </h3>
+
+
+                <p>
+                    UI/UX Designer
+                </p>
+
+
+                <div class="hunter-links">
+
+                    <a
+                        href="https://github.com/yourusername"
+                        target="_blank"
+                    >
+                        GitHub ↗
+                    </a>
+
+
+                    <a
+                        href="https://yourwebsite.com"
+                        target="_blank"
+                    >
+                        Website ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HUNTER 3 -->
+
+            <div class="member">
+
+                <div class="avatar">
+                    🤖
+                </div>
+
+
+                <h3>
+                    Member Three
+                </h3>
+
+
+                <p>
+                    AI / ML Developer
+                </p>
+
+
+                <div class="hunter-links">
+
+                    <a
+                        href="https://github.com/yourusername"
+                        target="_blank"
+                    >
+                        GitHub ↗
+                    </a>
+
+
+                    <a
+                        href="https://yourwebsite.com"
+                        target="_blank"
+                    >
+                        Website ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HUNTER 4 -->
+
+            <div class="member">
+
+                <div class="avatar">
+                    ⚡
+                </div>
+
+
+                <h3>
+                    Member Four
+                </h3>
+
+
+                <p>
+                    Backend Developer
+                </p>
+
+
+                <div class="hunter-links">
+
+                    <a
+                        href="https://github.com/yourusername"
+                        target="_blank"
+                    >
+                        GitHub ↗
+                    </a>
+
+
+                    <a
+                        href="https://yourwebsite.com"
+                        target="_blank"
+                    >
+                        Website ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TECH STACK
+    ========================= -->
+
+    <section>
+
+        <div class="section-title">
+
+            <h2>
+                Our Arsenal
+            </h2>
+
+            <p>
+                Technologies we love building with.
+            </p>
+
+        </div>
+
+
+        <div class="tech-grid">
+
+            <div class="tech">
+                HTML
+            </div>
+
+            <div class="tech">
+                CSS
+            </div>
+
+            <div class="tech">
+                JavaScript
+            </div>
+
+            <div class="tech">
+                React
+            </div>
+
+            <div class="tech">
+                Node.js
+            </div>
+
+            <div class="tech">
+                Python
+            </div>
+
+            <div class="tech">
+                Git
+            </div>
+
+            <div class="tech">
+                GitHub
+            </div>
+
+            <div class="tech">
+                AI / ML
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+        <div class="section-title">
+
+            <h2>
+                What We've Built
+            </h2>
+
+            <p>
+                Ideas turned into working prototypes.
+            </p>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <div class="project">
+
+                <h3>
+                    🚀 Project One
+                </h3>
+
+
+                <p>
+                    Your hackathon project description goes here.
+                    Explain the problem and how your solution helps.
+                </p>
+
+
+                <a href="#">
+                    View Project →
+                </a>
+
+            </div>
+
+
+
+            <div class="project">
+
+                <h3>
+                    🤖 Project Two
+                </h3>
+
+
+                <p>
+                    An innovative solution created during one
+                    of our hackathon challenges.
+                </p>
+
+
+                <a href="#">
+                    View Project →
+                </a>
+
+            </div>
+
+
+
+            <div class="project">
+
+                <h3>
+                    🌐 Project Three
+                </h3>
+
+
+                <p>
+                    Another experiment from the CodeHunters lab.
+                </p>
+
+
+                <a href="#">
+                    View Project →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section
+        class="cta"
+        id="contact"
+    >
+
+        <h2>
+            Let's Build Something.
+        </h2>
+
+
+        <p>
+            Got a problem worth solving?
+            Let's hunt for the solution.
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                class="btn primary"
+                href="https://github.com/"
+                target="_blank"
+            >
+                Visit Our GitHub
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div>
+            © 2026 CodeHunters
+        </div>
+
+
+        <div>
+            Built with ❤️ & code
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
+```
