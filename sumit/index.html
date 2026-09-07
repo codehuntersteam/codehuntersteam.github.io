@@ -1,19 +1,16 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CodeHunters</title>
-<link rel="icon" type="image/png" href="https://img.icons8.com/?size=100&id=dQVSC6DSmc3w&format=png&color=000000">
+    <title>Sumit | Hackathon 2026</title>
+
+    <link rel="icon" type="image/png"
+        href="https://img.icons8.com/?size=100&id=dQVSC6DSmc3w&format=png&color=000000">
 
     <style>
-
-        /* =========================
-           RESET
-        ========================= */
-
         * {
             margin: 0;
             padding: 0;
@@ -25,1141 +22,648 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #08090d;
-            color: #ffffff;
+            font-family: Arial, sans-serif;
+            background: #0b0b0f;
+            color: #fff;
             line-height: 1.6;
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
-
-        /* =========================
-           NAVBAR
-        ========================= */
+        /* ================= NAVBAR ================= */
 
         nav {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 20px 8%;
+            z-index: 1000;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            position: fixed;
-            top: 0;
-            left: 0;
+            padding: 20px 7%;
 
-            z-index: 1000;
-
-            background: rgba(8, 9, 13, 0.8);
-
+            background: rgba(11, 11, 15, 0.8);
             backdrop-filter: blur(12px);
 
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-
 
         .logo {
             font-size: 22px;
             font-weight: bold;
         }
 
-
         .logo span {
-            color: #6c63ff;
+            color: #8b5cf6;
         }
 
+        .back-btn {
+            padding: 9px 18px;
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-
-            list-style: none;
-        }
-
-
-        .nav-links a {
-            color: #aaa;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
 
             transition: 0.3s;
         }
 
-
-        .nav-links a:hover {
-            color: white;
+        .back-btn:hover {
+            background: #fff;
+            color: #000;
         }
 
-
-
-        /* =========================
-           HERO
-        ========================= */
+        /* ================= HERO ================= */
 
         .hero {
             min-height: 100vh;
 
+            padding: 140px 7% 80px;
+
             display: flex;
-            justify-content: center;
             align-items: center;
-
-            text-align: center;
-
-            padding: 100px 20px 50px;
-
-            background:
-                radial-gradient(
-                    circle at 50% 40%,
-                    rgba(108, 99, 255, 0.18),
-                    transparent 35%
-                );
+            justify-content: center;
         }
 
+        .profile {
+            width: 100%;
+            max-width: 1050px;
 
-        .hero-content {
-            max-width: 850px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+
+            gap: 70px;
+            align-items: center;
         }
 
+        .profile-image {
+            width: 270px;
+            height: 270px;
 
-        .badge {
-            display: inline-block;
+            object-fit: cover;
 
-            padding: 8px 16px;
+            border-radius: 50%;
 
-            border: 1px solid rgba(108, 99, 255, 0.5);
+            border: 3px solid #8b5cf6;
 
-            border-radius: 50px;
+            box-shadow:
+                0 0 40px rgba(139, 92, 246, 0.25);
+        }
+
+        .small-title {
+            color: #8b5cf6;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .profile-content h1 {
+            margin: 10px 0;
+
+            font-size: clamp(45px, 7vw, 75px);
+            line-height: 1.05;
+        }
+
+        .profile-content h2 {
+            margin-bottom: 20px;
 
             color: #aaa;
 
-            font-size: 14px;
-
-            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: normal;
         }
 
-
-        .hero h1 {
-            font-size: clamp(55px, 10vw, 110px);
-
-            line-height: 1;
-
-            letter-spacing: -5px;
-        }
-
-
-        .hero h1 span {
-            color: #6c63ff;
-        }
-
-
-        .hero p {
-            margin: 30px auto;
-
+        .profile-content > p {
             max-width: 650px;
 
-            color: #999;
-
-            font-size: 18px;
+            color: #aaa;
+            font-size: 17px;
         }
 
+        /* ================= SOCIALS ================= */
 
-        .buttons {
+        .socials {
             display: flex;
-
-            justify-content: center;
-
-            gap: 15px;
-
             flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 25px;
         }
 
+        .socials a {
+            padding: 9px 17px;
 
-        .btn {
-            padding: 13px 25px;
+            color: #ccc;
 
+            border: 1px solid #29292f;
             border-radius: 8px;
-
-            font-weight: bold;
 
             transition: 0.3s;
         }
 
+        .socials a:hover {
+            color: #fff;
 
-        .primary {
-            background: #6c63ff;
-        }
+            border-color: #8b5cf6;
 
-
-        .primary:hover {
             transform: translateY(-3px);
-
-            box-shadow:
-                0 10px 30px rgba(108, 99, 255, 0.3);
         }
 
-
-        .secondary {
-            border: 1px solid #333;
-
-            color: #ccc;
-        }
-
-
-        .secondary:hover {
-            border-color: #6c63ff;
-
-            color: white;
-        }
-
-
-
-        /* =========================
-           SECTIONS
-        ========================= */
+        /* ================= COMMON SECTION ================= */
 
         section {
-            padding: 100px 8%;
-        }
-
-
-        .section-title {
-            text-align: center;
-
-            margin-bottom: 60px;
-        }
-
-
-        .section-title h2 {
-            font-size: 40px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .section-title p {
-            color: #888;
-        }
-
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about {
-            max-width: 850px;
+            max-width: 1100px;
 
             margin: auto;
 
-            text-align: center;
+            padding: 100px 7%;
+        }
+
+        .section-heading {
+            margin-bottom: 40px;
+        }
+
+        .section-number {
+            color: #8b5cf6;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            margin-top: 5px;
+
+            font-size: 42px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-text {
+            max-width: 850px;
 
             color: #aaa;
 
             font-size: 18px;
         }
 
+        .about-text p + p {
+            margin-top: 20px;
+        }
 
+        /* ================= CONTRIBUTION ================= */
 
-        /* =========================
-           TEAM
-        ========================= */
-
-        .team-grid {
+        .contribution-grid {
             display: grid;
 
-            grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 20px;
         }
 
-
-        .member {
+        .contribution-card {
             padding: 30px;
 
-            background: #101117;
+            background: #121217;
 
-            border: 1px solid #20222b;
-
-            border-radius: 15px;
-
-            text-align: center;
-
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-
-        .member:hover {
-            transform: translateY(-7px);
-
-            border-color: #6c63ff;
-
-            box-shadow:
-                0 10px 35px rgba(108, 99, 255, 0.12);
-        }
-
-
-        .avatar {
-            width: 80px;
-            height: 80px;
-
-            margin: auto auto 15px;
-
-            border-radius: 50%;
-
-            background: #181a25;
-
-            display: flex;
-
-            justify-content: center;
-            align-items: center;
-
-            font-size: 30px;
-        }
-
-
-        .member h3 {
-            margin-bottom: 4px;
-        }
-
-
-        .member p {
-            color: #777;
-
-            font-size: 14px;
-        }
-
-
-
-        /* =========================
-           HUNTER BUTTONS
-        ========================= */
-
-        .hunter-links {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 10px;
-
-            margin-top: 22px;
-        }
-
-
-        .hunter-links a {
-            position: relative;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            min-width: 95px;
-
-            padding: 9px 16px;
-
-            border: 1px solid #292b36;
-
-            border-radius: 8px;
-
-            background: #15161d;
-
-            color: #b8b8c2;
-
-            font-size: 13px;
-
-            font-weight: 600;
-
-            overflow: hidden;
-
-            transition:
-                color 0.25s ease,
-                border-color 0.25s ease,
-                background 0.25s ease,
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-
-        /* Shine */
-
-        .hunter-links a::before {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: -100%;
-
-            width: 100%;
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.08),
-                    transparent
-                );
-
-            transition: left 0.5s ease;
-        }
-
-
-        /* Hover */
-
-        .hunter-links a:hover {
-            color: #ffffff;
-
-            border-color: #6c63ff;
-
-            background: #1a1928;
-
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 6px 20px rgba(108, 99, 255, 0.18);
-        }
-
-
-        .hunter-links a:hover::before {
-            left: 100%;
-        }
-
-
-        .hunter-links a:active {
-            transform: translateY(-1px);
-        }
-
-
-
-        /* =========================
-           TECH STACK
-        ========================= */
-
-        .tech-grid {
-            display: flex;
-
-            justify-content: center;
-
-            flex-wrap: wrap;
-
-            gap: 15px;
-        }
-
-
-        .tech {
-            padding: 12px 20px;
-
-            background: #101117;
-
-            border: 1px solid #252732;
-
-            border-radius: 8px;
-
-            color: #bbb;
+            border: 1px solid #29292f;
+            border-radius: 14px;
 
             transition: 0.3s;
         }
 
+        .contribution-card:hover {
+            transform: translateY(-6px);
 
-        .tech:hover {
-            border-color: #6c63ff;
-
-            color: white;
+            border-color: #8b5cf6;
         }
 
+        .contribution-card .number {
+            color: #8b5cf6;
 
-
-        /* =========================
-           PROJECTS
-        ========================= */
-
-        .projects {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
-
-            gap: 25px;
+            font-size: 14px;
+            font-weight: bold;
         }
 
+        .contribution-card h3 {
+            margin: 10px 0;
 
-        .project {
-            padding: 30px;
-
-            background: #101117;
-
-            border: 1px solid #20222b;
-
-            border-radius: 15px;
-
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease;
+            font-size: 23px;
         }
 
-
-        .project:hover {
-            transform: translateY(-5px);
-
-            border-color: #6c63ff;
+        .contribution-card p {
+            color: #999;
         }
 
+        /* ================= HACKATHON ================= */
 
-        .project h3 {
+        .hackathon-box {
+            padding: 40px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171320,
+                    #101015
+                );
+
+            border: 1px solid #29292f;
+            border-radius: 16px;
+        }
+
+        .hackathon-box h3 {
+            font-size: 30px;
+
             margin-bottom: 10px;
         }
 
+        .hackathon-box p {
+            color: #aaa;
 
-        .project p {
-            color: #888;
-
-            margin-bottom: 20px;
+            max-width: 750px;
         }
 
+        .role {
+            display: inline-block;
 
-        .project a {
-            color: #6c63ff;
+            margin-top: 20px;
+            padding: 8px 17px;
+
+            background: #8b5cf6;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+            font-weight: bold;
         }
 
+        /* ================= TEAM ================= */
 
+        .team-text {
+            max-width: 800px;
 
-        /* =========================
-           CTA
-        ========================= */
+            color: #aaa;
 
-        .cta {
-            text-align: center;
-
-            background: #0d0e14;
+            font-size: 18px;
         }
 
-
-        .cta h2 {
-            font-size: 45px;
-
-            margin-bottom: 15px;
-        }
-
-
-        .cta p {
-            color: #888;
-
-            margin-bottom: 30px;
-        }
-
-
-
-        /* =========================
-           FOOTER
-        ========================= */
+        /* ================= FOOTER ================= */
 
         footer {
-            padding: 30px 8%;
+            padding: 50px 20px;
 
-            border-top: 1px solid #1d1e25;
+            text-align: center;
 
-            display: flex;
+            color: #777;
 
-            justify-content: space-between;
-
-            color: #666;
+            border-top: 1px solid #222;
         }
 
+        footer span {
+            color: #8b5cf6;
+        }
 
+        /* ================= MOBILE ================= */
 
-        /* =========================
-           MOBILE
-        ========================= */
+        @media (max-width: 750px) {
 
-        @media (max-width: 700px) {
-
-            .nav-links {
-                display: none;
+            nav {
+                padding: 17px 5%;
             }
 
-
-            .hero h1 {
-                letter-spacing: -3px;
+            .logo {
+                font-size: 18px;
             }
 
-
-            section {
-                padding: 80px 6%;
+            .back-btn {
+                padding: 7px 12px;
+                font-size: 14px;
             }
 
-
-            .cta h2 {
-                font-size: 32px;
+            .hero {
+                padding: 120px 5% 70px;
             }
 
-
-            footer {
-                flex-direction: column;
-
-                gap: 10px;
+            .profile {
+                grid-template-columns: 1fr;
 
                 text-align: center;
+
+                gap: 35px;
             }
 
+            .profile-image {
+                width: 190px;
+                height: 190px;
 
-            .hunter-links {
-                flex-direction: column;
+                margin: auto;
             }
 
-
-            .hunter-links a {
-                width: 100%;
+            .profile-content h1 {
+                font-size: 48px;
             }
 
+            .profile-content h2 {
+                font-size: 19px;
+            }
+
+            .profile-content > p {
+                font-size: 16px;
+            }
+
+            .socials {
+                justify-content: center;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
+            .contribution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hackathon-box {
+                padding: 28px;
+            }
         }
-
     </style>
-
 </head>
 
 
 <body>
 
-
-    <!-- =========================
-         NAVBAR
-    ========================= -->
+    <!-- ================= NAVBAR ================= -->
 
     <nav>
 
-        <div class="logo">
+        <a href="https://codehuntersteam.github.io/" class="logo">
             Code<span>Hunters</span>
-        </div>
+        </a>
 
-
-        <ul class="nav-links">
-
-            <li>
-                <a href="#about">
-                    About
-                </a>
-            </li>
-
-            <li>
-                <a href="#team">
-                    Team
-                </a>
-            </li>
-
-            <li>
-                <a href="#projects">
-                    Projects
-                </a>
-            </li>
-
-            <li>
-                <a href="#contact">
-                    Contact
-                </a>
-            </li>
-
-        </ul>
+        <a href="https://codehuntersteam.github.io/" class="back-btn">
+            ← Back to Team
+        </a>
 
     </nav>
 
 
+    <!-- ================= HERO ================= -->
 
-    <!-- =========================
-         HERO
-    ========================= -->
+    <main>
 
-    <section class="hero">
+        <div class="hero">
 
-        <div class="hero-content">
+            <div class="profile">
 
-            <div class="badge">
-                ⚡ Hack. Build. Hunt.
-            </div>
-
-
-            <h1>
-                Code<span>Hunters</span>
-            </h1>
-
-
-            <p>
-                We are a team of passionate developers,
-                designers and problem solvers building
-                bold ideas under pressure.
-            </p>
-
-
-            <div class="buttons">
-
-                <a
-                    class="btn primary"
-                    href="https://github.com/"
-                    target="_blank"
+                <!-- CHANGE IMAGE -->
+                <img
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500"
+                    alt="Team Member"
+                    class="profile-image"
                 >
-                    View GitHub
-                </a>
 
 
-                <a
-                    class="btn secondary"
-                    href="#projects"
-                >
-                    Explore Projects
-                </a>
+                <div class="profile-content">
+
+                    <span class="small-title">
+                        Hackathon Member
+                    </span>
+
+                    <!-- CHANGE NAME -->
+                    <h1>Sumit Anand</h1>
+
+                    <h2>Team Member</h2>
+
+                    <p>
+                        A member of our hackathon team, contributing
+                        ideas, collaborating with teammates, and
+                        working together to turn an idea into a
+                        meaningful solution.
+                    </p>
+
+
+                    <div class="socials">
+                      <!-- 
+                        <a href="#" target="_blank">
+                            Instagram
+                        </a>
+
+                        <a href="#" target="_blank">
+                            LinkedIn
+                        </a>
+
+                        <a href="#" target="_blank">
+                            Portfolio
+                        </a> -->
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
-    </section>
+
+        <!-- ================= ABOUT ================= -->
+
+        <section id="about">
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    01
+                </span>
+
+                <h2>About</h2>
+
+            </div>
 
 
+            <div class="about-text">
 
-    <!-- =========================
-         ABOUT
-    ========================= -->
+                <p>
+                    Every great project starts with a team.
+                </p>
 
-    <section id="about">
+                <p>
+                    As a member of the team, I took part in the
+                    hackathon journey — from discussing ideas and
+                    understanding the problem to building and
+                    presenting our solution.
+                </p>
 
-        <div class="section-title">
+            </div>
 
-            <h2>
-                Who We Are
-            </h2>
+        </section>
 
-            <p>
-                More than just a team.
+
+        <!-- ================= CONTRIBUTION ================= -->
+
+        <section id="contribution">
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    02
+                </span>
+
+                <h2>Contribution</h2>
+
+            </div>
+
+
+            <div class="contribution-grid">
+
+
+                <div class="contribution-card">
+
+                    <span class="number">
+                        01
+                    </span>
+
+                    <h3>Ideas</h3>
+
+                    <p>
+                        Sharing thoughts, exploring possibilities
+                        and helping the team shape the project.
+                    </p>
+
+                </div>
+
+
+                <div class="contribution-card">
+
+                    <span class="number">
+                        02
+                    </span>
+
+                    <h3>Collaboration</h3>
+
+                    <p>
+                        Working together with teammates and
+                        contributing to the overall development
+                        of the project.
+                    </p>
+
+                </div>
+
+
+                <div class="contribution-card">
+
+                    <span class="number">
+                        03
+                    </span>
+
+                    <h3>Learning</h3>
+
+                    <p>
+                        Exploring new concepts and gaining
+                        experience through the hackathon
+                        experience.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HACKATHON ================= -->
+
+        <section id="hackathon">
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    03
+                </span>
+
+                <h2>Hackathon</h2>
+
+            </div>
+
+
+            <div class="hackathon-box">
+
+                <h3>
+                    Hackathon 2026
+                </h3>
+
+                <p>
+                    Worked together with the team to develop
+                    and present our solution during the
+                    hackathon.
+                </p>
+
+                <span class="role">
+                    Team Member
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TEAM ================= -->
+
+        <section id="team">
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    04
+                </span>
+
+                <h2>Team</h2>
+
+            </div>
+
+
+            <p class="team-text">
+
+                Great ideas become better when people work
+                together.
+
+                <br><br>
+
+                This member is part of our hackathon team,
+                working alongside other members to turn our
+                idea into reality.
+
             </p>
 
-        </div>
+        </section>
 
+    </main>
 
-        <div class="about">
 
-            <p>
-                CodeHunters is a hackathon team focused on
-                turning real-world problems into practical
-                technology. We brainstorm fast, build faster
-                and learn from every challenge we take on.
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         TEAM
-    ========================= -->
-
-    <section id="team">
-
-        <div class="section-title">
-
-            <h2>
-                Meet the Hunters
-            </h2>
-
-            <p>
-                The people behind the code.
-            </p>
-
-        </div>
-
-
-        <div class="team-grid">
-
-
-            <!-- HUNTER 1 -->
-
-            <div class="member">
-
-                <div class="avatar">
-                    👨‍💻
-                </div>
-
-
-                <h3>
-                    Your Name
-                </h3>
-
-
-                <p>
-                    Full Stack Developer
-                </p>
-
-
-                <div class="hunter-links">
-
-                    <a
-                        href="https://github.com/yourusername"
-                        target="_blank"
-                    >
-                        GitHub ↗
-                    </a>
-
-
-                    <a
-                        href="https://yourwebsite.com"
-                        target="_blank"
-                    >
-                        Website ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- HUNTER 2 -->
-
-            <div class="member">
-
-                <div class="avatar">
-                    👨‍🎨
-                </div>
-
-
-                <h3>
-                    Member Two
-                </h3>
-
-
-                <p>
-                    UI/UX Designer
-                </p>
-
-
-                <div class="hunter-links">
-
-                    <a
-                        href="https://github.com/yourusername"
-                        target="_blank"
-                    >
-                        GitHub ↗
-                    </a>
-
-
-                    <a
-                        href="https://yourwebsite.com"
-                        target="_blank"
-                    >
-                        Website ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- HUNTER 3 -->
-
-            <div class="member">
-
-                <div class="avatar">
-                    🤖
-                </div>
-
-
-                <h3>
-                    Member Three
-                </h3>
-
-
-                <p>
-                    AI / ML Developer
-                </p>
-
-
-                <div class="hunter-links">
-
-                    <a
-                        href="https://github.com/yourusername"
-                        target="_blank"
-                    >
-                        GitHub ↗
-                    </a>
-
-
-                    <a
-                        href="https://yourwebsite.com"
-                        target="_blank"
-                    >
-                        Website ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- HUNTER 4 -->
-
-            <div class="member">
-
-                <div class="avatar">
-                    ⚡
-                </div>
-
-
-                <h3>
-                    Member Four
-                </h3>
-
-
-                <p>
-                    Backend Developer
-                </p>
-
-
-                <div class="hunter-links">
-
-                    <a
-                        href="https://github.com/yourusername"
-                        target="_blank"
-                    >
-                        GitHub ↗
-                    </a>
-
-
-                    <a
-                        href="https://yourwebsite.com"
-                        target="_blank"
-                    >
-                        Website ↗
-                    </a>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         TECH STACK
-    ========================= -->
-
-    <section>
-
-        <div class="section-title">
-
-            <h2>
-                Our Arsenal
-            </h2>
-
-            <p>
-                Technologies we love building with.
-            </p>
-
-        </div>
-
-
-        <div class="tech-grid">
-
-            <div class="tech">
-                HTML
-            </div>
-
-            <div class="tech">
-                CSS
-            </div>
-
-            <div class="tech">
-                JavaScript
-            </div>
-
-            <div class="tech">
-                React
-            </div>
-
-            <div class="tech">
-                Node.js
-            </div>
-
-            <div class="tech">
-                Python
-            </div>
-
-            <div class="tech">
-                Git
-            </div>
-
-            <div class="tech">
-                GitHub
-            </div>
-
-            <div class="tech">
-                AI / ML
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         PROJECTS
-    ========================= -->
-
-    <section id="projects">
-
-        <div class="section-title">
-
-            <h2>
-                What We've Built
-            </h2>
-
-            <p>
-                Ideas turned into working prototypes.
-            </p>
-
-        </div>
-
-
-        <div class="projects">
-
-
-            <div class="project">
-
-                <h3>
-                    🚀 Project One
-                </h3>
-
-
-                <p>
-                    Your hackathon project description goes here.
-                    Explain the problem and how your solution helps.
-                </p>
-
-
-                <a href="#">
-                    View Project →
-                </a>
-
-            </div>
-
-
-
-            <div class="project">
-
-                <h3>
-                    🤖 Project Two
-                </h3>
-
-
-                <p>
-                    An innovative solution created during one
-                    of our hackathon challenges.
-                </p>
-
-
-                <a href="#">
-                    View Project →
-                </a>
-
-            </div>
-
-
-
-            <div class="project">
-
-                <h3>
-                    🌐 Project Three
-                </h3>
-
-
-                <p>
-                    Another experiment from the CodeHunters lab.
-                </p>
-
-
-                <a href="#">
-                    View Project →
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CTA
-    ========================= -->
-
-    <section
-        class="cta"
-        id="contact"
-    >
-
-        <h2>
-            Let's Build Something.
-        </h2>
-
-
-        <p>
-            Got a problem worth solving?
-            Let's hunt for the solution.
-        </p>
-
-
-        <div class="buttons">
-
-            <a
-                class="btn primary"
-                href="https://github.com/"
-                target="_blank"
-            >
-                Visit Our GitHub
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    <!-- ================= FOOTER ================= -->
 
     <footer>
 
-        <div>
-            © 2026 CodeHunters
-        </div>
-
-
-        <div>
-            Built with ❤️ & code
-        </div>
+        <p>
+            © 2026 <span>CodeHunters</span>. Built with ❤️ & code.
+        </p>
 
     </footer>
-
 
 </body>
 
 </html>
-```
