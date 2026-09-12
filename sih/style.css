@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #2b2d42;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a1a2e;
+    padding: 1rem 5%;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo span {
+    font-size: 0.8rem;
+    color: #e94560;
+    background: rgba(233, 69, 96, 0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a, .back-btn {
+    color: #edf2f4;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #e94560;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 100px 10%;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: #8d99ae;
+}
+
+.btn {
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.primary-btn {
+    background-color: #e94560;
+    color: white;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid #e94560;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+/* Grid & Cards */
+.features-section {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* Subjects Page */
+.container {
+    padding: 50px 10%;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 40px;
+}
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.subject-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #e0e0e0;
+}
+
+.subject-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    border-color: #e94560;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #007bff;
+    color: white;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.badge.math { background: #6f42c1; }
+.badge.chem { background: #28a745; }
+.badge.cs { background: #fd7e14; }
+.badge.eco { background: #20c997; }
+
+.subject-card h2 { margin-bottom: 5px; }
+.subject-card h4 { color: #495057; font-size: 1rem; margin-bottom: 15px; }
+.subject-card p { color: #6c757d; font-size: 0.9rem; margin-bottom: 20px; }
+
+.card-btn {
+    background: #1a1a2e;
+    color: white;
+    width: 100%;
+}
+
+/* Reader Page */
+.reader-header {
+    text-align: center;
+    padding: 40px 10% 20px 10%;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.toggle-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.toggle-btn {
+    padding: 10px 24px;
+    border-radius: 25px;
+    border: 2px solid #1a1a2e;
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-btn.active {
+    background: #1a1a2e;
+    color: white;
+}
+
+.reader-container {
+    max-width: 850px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.content-view {
+    display: none;
+}
+
+.content-view.active {
+    display: block;
+}
+
+/* Novel Typography */
+#novel-view {
+    font-family: 'Merriweather', serif;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #2d3748;
+}
+
+#novel-view p {
+    margin-bottom: 20px;
+    text-indent: 30px;
+}
+
+.dialogue {
+    font-style: italic;
+    color: #1a202c;
+    background: #f7fafc;
+    padding: 10px 20px;
+    border-left: 4px solid #e94560;
+    margin: 15px 0;
+}
+
+/* Notes Styling */
+.notes-card {
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #007bff;
+    margin-bottom: 20px;
+}
+
+.notes-card h3 { margin-bottom: 10px; color: #0f172a; }
+.notes-card ul { padding-left: 20px; }
+.notes-card li { margin-bottom: 8px; }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1a1a2e;
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 50px;
+}

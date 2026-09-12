@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Learning - NovelEd</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+
+<script async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">📖 NovelEd Reader</div>
+        <a href="subjects.html" class="back-btn">← विषयों पर लौटें</a>
+    </nav>
+
+    <div class="reader-header">
+        <h1 id="topic-title">Topic Title Loading...</h1>
+        <p id="subject-name">Subject Name</p>
+
+        <!-- Mode Toggle Switcher -->
+        <div class="toggle-container">
+            <button id="btn-novel" class="toggle-btn active" onclick="switchMode('novel')">📖 उपन्यास शैली (Novel Mode)</button>
+            <button id="btn-notes" class="toggle-btn" onclick="switchMode('notes')">⚡ क्विक रिवीज़न नोट्स (Exam Mode)</button>
+        </div>
+    </div>
+
+    <main class="reader-container">
+        <!-- Novel Content Area -->
+        <article id="novel-view" class="content-view active">
+            <!-- Dynamic Content populated by script.js -->
+        </article>
+
+        <!-- Quick Notes Content Area -->
+        <article id="notes-view" class="content-view">
+            <!-- Dynamic Content populated by script.js -->
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

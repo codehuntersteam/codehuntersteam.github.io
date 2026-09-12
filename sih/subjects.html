@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Subject - NovelEd</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">📖 NovelEd</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="subjects.html" class="active">Explore Subjects</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">विषय चुनें और कहानी की दुनिया में उतरें</h1>
+        <p class="page-subtitle">5 कठिन विषय जिन्हें हमने एक रोमांचक उपन्यास में तब्दील किया है:</p>
+
+        <div class="subject-grid">
+            <!-- Subject 1 -->
+            <div class="subject-card" onclick="openStory('physics')">
+                <div class="badge">Physics</div>
+                <h2>भौतिक विज्ञान</h2>
+                <h4>Topic: Calculus in Motion (Calculus in Mechanics)</h4>
+                <p>गाड़ी की रफ्तार और समय के सूक्ष्म क्षणों के बीच का संबंध - रोहन की एक तूफानी यात्रा की कहानी।</p>
+                <button class="btn card-btn">पढ़ना शुरू करें →</button>
+            </div>
+
+            <!-- Subject 2 -->
+            <div class="subject-card" onclick="openStory('maths')">
+                <div class="badge math">Mathematics</div>
+                <h2>गणित (Maths)</h2>
+                <h4>Topic: Imaginary Numbers (Complex Numbers - $i$)</h4>
+                <p>ऋणात्मक संख्याओं का वर्गमूल कैसे बना एक दूसरी अदृश्य आयाम की खिड़की।</p>
+                <button class="btn card-btn">पढ़ना शुरू करें →</button>
+            </div>
+
+            <!-- Subject 3 -->
+            <div class="subject-card" onclick="openStory('chemistry')">
+                <div class="badge chem">Chemistry</div>
+                <h2>रसायन विज्ञान</h2>
+                <h4>Topic: Chemical Bonding & Resonance</h4>
+                <p>परमाणुओं के बीच इलेक्ट्रॉन का बँटवारा और स्थिरता की अंतहीन तलाश।</p>
+                <button class="btn card-btn">पढ़ना शुरू करें →</button>
+            </div>
+
+            <!-- Subject 4 -->
+            <div class="subject-card" onclick="openStory('cs')">
+                <div class="badge cs">Computer Science</div>
+                <h2>कंप्यूटर साइंस / IoT</h2>
+                <h4>Topic: Recursion (पुनरावृत्ति)</h4>
+                <p>अनंत दर्पणों के बीच फँसा एक प्रोग्राम जो खुद को पुकारता है।</p>
+                <button class="btn card-btn">पढ़ना शुरू करें →</button>
+            </div>
+
+            <!-- Subject 5 -->
+            <div class="subject-card" onclick="openStory('economics')">
+                <div class="badge eco">Economics</div>
+                <h2>अर्थशास्त्र (Economics)</h2>
+                <h4>Topic: Demand Elasticity & Invisible Hand</h4>
+                <p>बाज़ार की अदृश्य शक्ति और एक छोटे से गाँव में अकाल का आर्थिक ताना-बाना।</p>
+                <button class="btn card-btn">पढ़ना शुरू करें →</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
