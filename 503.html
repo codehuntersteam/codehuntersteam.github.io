@@ -1,0 +1,686 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coming Soon</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            background: #050505;
+
+            overflow: hidden;
+        }
+
+        /* Background glow */
+        body::before {
+            content: "";
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            background: #6c63ff;
+            border-radius: 50%;
+
+            filter: blur(180px);
+            opacity: 0.25;
+
+            top: -150px;
+            left: -100px;
+
+            animation: moveGlow 8s infinite alternate ease-in-out;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 450px;
+            height: 450px;
+
+            background: #00d9ff;
+            border-radius: 50%;
+
+            filter: blur(180px);
+            opacity: 0.18;
+
+            bottom: -150px;
+            right: -100px;
+
+            animation: moveGlow2 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveGlow {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(250px, 180px);
+            }
+        }
+
+        @keyframes moveGlow2 {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(-200px, -150px);
+            }
+        }
+
+        /* Main */
+        .container {
+            position: relative;
+            z-index: 2;
+
+            width: min(900px, 90%);
+
+            text-align: center;
+
+            padding: 60px 30px;
+        }
+
+        .tag {
+            display: inline-block;
+
+            padding: 8px 18px;
+            margin-bottom: 25px;
+
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+
+            background: rgba(255,255,255,0.05);
+
+            backdrop-filter: blur(10px);
+
+            font-size: 13px;
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: #bdbdbd;
+        }
+
+        h1 {
+            font-size: clamp(55px, 10vw, 120px);
+
+            line-height: 0.9;
+
+            font-weight: 800;
+
+            letter-spacing: -5px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #8d86ff,
+                #00d9ff,
+                #ffffff
+            );
+
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: gradient 6s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 300%;
+            }
+        }
+
+        .subtitle {
+            margin: 30px auto 40px;
+
+            max-width: 600px;
+
+            color: #aaa;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-bottom: 45px;
+        }
+
+        .time-box {
+            min-width: 90px;
+
+            padding: 18px 15px;
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            border-radius: 15px;
+
+            background: rgba(255,255,255,0.04);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .time-box span {
+            display: block;
+        }
+
+        .number {
+            font-size: 32px;
+
+            font-weight: 700;
+        }
+
+        .label {
+            margin-top: 5px;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            color: #777;
+
+            text-transform: uppercase;
+        }
+
+        /* Message shown after countdown */
+        .update-message {
+            max-width: 650px;
+
+            margin: 0 auto 40px;
+
+            padding: 25px;
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,0.04);
+
+            backdrop-filter: blur(15px);
+
+            color: #ccc;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+        /* Button */
+        .notify {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 28px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            color: white;
+
+            background: linear-gradient(
+                135deg,
+                #6c63ff,
+                #00bcd4
+            );
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 40px rgba(108,99,255,0.25);
+
+            transition: 0.3s;
+        }
+
+        .notify:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 50px rgba(108,99,255,0.4);
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+
+            bottom: 25px;
+
+            width: 100%;
+
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            h1 {
+                letter-spacing: -3px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .countdown {
+                gap: 7px;
+            }
+
+            .time-box {
+                min-width: 65px;
+
+                padding: 13px 8px;
+            }
+
+            .number {
+                font-size: 23px;
+            }
+
+            .label {
+                font-size: 8px;
+            }
+
+            .update-message {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="tag">
+            Something New
+        </div>
+
+        <h1>
+            COMING<br>SOON
+        </h1>
+
+        <p class="subtitle">
+            We're working on something amazing.
+            Stay tuned — a new experience is about to arrive.
+        </p>
+
+
+        <!-- Countdown will be inserted here -->
+        <div
+            class="countdown"
+            id="countdown"
+        ></div>
+
+
+        <!-- Message shown when countdown is finished -->
+        <div
+            class="update-message"
+            id="updateMessage"
+            style="display: none;"
+        >
+            अब site/project कभी भी update हो सकता है।<br>
+            आपको कभी भी नया update मिल सकता है।
+        </div>
+
+
+        <button class="notify">
+            Notify Me
+        </button>
+
+    </main>
+
+
+    <footer>
+        © 2026 — All rights reserved.
+    </footer>
+
+
+    <script>
+
+        /*
+        ==========================================
+        GET DATE FROM URL
+        ==========================================
+
+        Example:
+
+        ?date=12082026
+
+        12 = Day
+        08 = Month
+        2026 = Year
+
+        ==========================================
+        */
+
+        const params = new URLSearchParams(
+            window.location.search
+        );
+
+        const dateParameter = params.get("date");
+
+
+        /*
+        ==========================================
+        CHECK WHETHER COUNTDOWN SHOULD BE SHOWN
+        ==========================================
+        */
+
+        if (
+            dateParameter === null ||
+            dateParameter === "" ||
+            dateParameter.toUpperCase() === "F"
+        ) {
+
+            // No countdown
+            document.getElementById("countdown").style.display =
+                "none";
+
+        } else {
+
+            /*
+            ==========================================
+            VALIDATE DATE FORMAT
+
+            Required:
+
+            DDMMYYYY
+
+            Example:
+
+            12082026
+            ==========================================
+            */
+
+            const validFormat =
+                /^\d{8}$/.test(dateParameter);
+
+
+            if (!validFormat) {
+
+                showUpdateMessage(
+                    "Invalid date parameter."
+                );
+
+            } else {
+
+                /*
+                Extract:
+
+                DD
+                MM
+                YYYY
+                */
+
+                const day =
+                    Number(dateParameter.substring(0, 2));
+
+                const month =
+                    Number(dateParameter.substring(2, 4));
+
+                const year =
+                    Number(dateParameter.substring(4, 8));
+
+
+                /*
+                ==========================================
+                CREATE MIDNIGHT DATE
+
+                Month in JavaScript is 0-based:
+
+                January = 0
+                February = 1
+                ...
+                December = 11
+                ==========================================
+                */
+
+                const launchDate =
+                    new Date(
+                        year,
+                        month - 1,
+                        day,
+                        0,
+                        0,
+                        0,
+                        0
+                    );
+
+
+                /*
+                ==========================================
+                CHECK WHETHER DATE ACTUALLY EXISTS
+                ==========================================
+                */
+
+                if (
+                    launchDate.getFullYear() !== year ||
+                    launchDate.getMonth() !== month - 1 ||
+                    launchDate.getDate() !== day
+                ) {
+
+                    showUpdateMessage(
+                        "Invalid date parameter."
+                    );
+
+                } else {
+
+                    startCountdown(launchDate);
+
+                }
+            }
+        }
+
+
+        /*
+        ==========================================
+        START COUNTDOWN
+        ==========================================
+        */
+
+        function startCountdown(launchDate) {
+
+            function updateCountdown() {
+
+                const now =
+                    new Date().getTime();
+
+                const distance =
+                    launchDate.getTime() - now;
+
+
+                /*
+                ==========================================
+                DATE/TIME HAS ARRIVED
+
+                Don't show:
+
+                0 Days
+                0 Hours
+                0 Minutes
+                0 Seconds
+
+                Instead show update message.
+                ==========================================
+                */
+
+                if (distance <= 0) {
+
+                    document.getElementById(
+                        "countdown"
+                    ).style.display = "none";
+
+                    showUpdateMessage();
+
+                    return;
+                }
+
+
+                /*
+                ==========================================
+                CALCULATE TIME
+                ==========================================
+                */
+
+                const days =
+                    Math.floor(
+                        distance /
+                        (1000 * 60 * 60 * 24)
+                    );
+
+                const hours =
+                    Math.floor(
+                        (distance /
+                        (1000 * 60 * 60)) % 24
+                    );
+
+                const minutes =
+                    Math.floor(
+                        (distance /
+                        (1000 * 60)) % 60
+                    );
+
+                const seconds =
+                    Math.floor(
+                        (distance / 1000) % 60
+                    );
+
+
+                /*
+                ==========================================
+                DISPLAY COUNTDOWN
+                ==========================================
+                */
+
+                document.getElementById(
+                    "countdown"
+                ).innerHTML = `
+
+                    <div class="time-box">
+                        <span class="number">
+                            ${String(days).padStart(2, "0")}
+                        </span>
+
+                        <span class="label">
+                            Days
+                        </span>
+                    </div>
+
+
+                    <div class="time-box">
+                        <span class="number">
+                            ${String(hours).padStart(2, "0")}
+                        </span>
+
+                        <span class="label">
+                            Hours
+                        </span>
+                    </div>
+
+
+                    <div class="time-box">
+                        <span class="number">
+                            ${String(minutes).padStart(2, "0")}
+                        </span>
+
+                        <span class="label">
+                            Minutes
+                        </span>
+                    </div>
+
+
+                    <div class="time-box">
+                        <span class="number">
+                            ${String(seconds).padStart(2, "0")}
+                        </span>
+
+                        <span class="label">
+                            Seconds
+                        </span>
+                    </div>
+
+                `;
+            }
+
+
+            updateCountdown();
+
+            setInterval(
+                updateCountdown,
+                1000
+            );
+        }
+
+
+        /*
+        ==========================================
+        SHOW UPDATE MESSAGE
+        ==========================================
+        */
+
+        function showUpdateMessage(customMessage = null) {
+
+            const message =
+                document.getElementById(
+                    "updateMessage"
+                );
+
+            message.innerHTML =
+                customMessage ||
+                `
+                    You may receive a new update at any time.
+                `;
+
+            message.style.display =
+                "block";
+        }
+
+    </script>
+
+</body>
+</html>
+```
